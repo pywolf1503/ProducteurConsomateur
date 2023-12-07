@@ -3,10 +3,16 @@ package entities;
 import api.collection.Limiters;
 import api.entities.IEntrepreneur;
 import lombok.Getter;
+import lombok.Setter;
+import threads.Factory;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AEntrepreneur implements IEntrepreneur {
+    @Setter
+    @Getter
+    Factory factory;
     private final List<Integer> stock = new ArrayList<>();
     @Override
     public void addStock(int product) {
@@ -30,6 +36,6 @@ public abstract class AEntrepreneur implements IEntrepreneur {
 
     @Override
     public boolean isMinimumStock() {
-        return stock.size() <= Limiters.MAXIMUM_STOCK;
+        return stock.size() <= Limiters.MINIMUM_STOCK;
     }
 }

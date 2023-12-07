@@ -10,7 +10,6 @@ import lombok.Getter;
 public class Semaphore implements ISemaphore {
 
     /** The counter representing the number of available permits. */
-    @Getter
     private int counter = 0;
 
     /**

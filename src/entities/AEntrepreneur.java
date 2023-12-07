@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AEntrepreneur implements IEntrepreneur {
-    @Setter
-    @Getter
     Factory factory;
     private final List<Integer> stock = new ArrayList<>();
     @Override
@@ -37,5 +35,17 @@ public abstract class AEntrepreneur implements IEntrepreneur {
     @Override
     public boolean isMinimumStock() {
         return stock.size() <= Limiters.MINIMUM_STOCK;
+    }
+
+    public Factory getFactory() {
+        return factory;
+    }
+
+    public void setFactory(Factory factory) {
+        this.factory = factory;
+    }
+
+    public List<Integer> getStock() {
+        return stock;
     }
 }

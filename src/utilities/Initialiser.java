@@ -1,6 +1,7 @@
 package utilities;
 
 import api.IStarter;
+import threads.Factory;
 
 /**
  * The {@code Initialiser} class implements the {@link IStarter} interface and provides
@@ -14,7 +15,8 @@ public class Initialiser implements IStarter {
      * @param s the semaphore to be used for initialization
      */
     @Override
-    public void init(Semaphore s) {
+    public void init(Factory f, Semaphore s) {
+        f.setProduction(true);
         s.release();
     }
 }

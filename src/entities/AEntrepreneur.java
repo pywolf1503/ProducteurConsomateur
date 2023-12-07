@@ -2,7 +2,7 @@ package entities;
 
 import api.collection.Limiters;
 import api.entities.IEntrepreneur;
-
+import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 

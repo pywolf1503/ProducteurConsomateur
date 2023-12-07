@@ -1,5 +1,6 @@
 package api;
 
+import threads.Factory;
 import utilities.Semaphore;
 
 /**
@@ -13,5 +14,5 @@ public interface IStarter {
      *
      * @param s the semaphore to be used for initialization
      */
-    void init(Semaphore s);
+    void init(Factory f,Semaphore s);
 }

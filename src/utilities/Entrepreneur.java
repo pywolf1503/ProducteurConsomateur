@@ -1,4 +1,3 @@
 package utilities;
-
-public class Entrepreneur{
-}
+import entities.AEntrepreneur;
+public class Entrepreneur extends AEntrepreneur {}

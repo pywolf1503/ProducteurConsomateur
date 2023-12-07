@@ -1,6 +1,7 @@
 package utilities;
 
 import api.ISemaphore;
+import lombok.Getter;
 
 /**
  * The {@code Semaphore} class implements the {@link ISemaphore} interface,
@@ -9,6 +10,7 @@ import api.ISemaphore;
 public class Semaphore implements ISemaphore {
 
     /** The counter representing the number of available permits. */
+    @Getter
     private int counter = 0;
 
     /**

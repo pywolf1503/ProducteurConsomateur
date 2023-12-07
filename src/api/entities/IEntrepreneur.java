@@ -17,7 +17,7 @@ public interface IEntrepreneur {
      * Removes a certain amount of stock. The exact logic for removing stock may depend on
      * the implementation in the classes that implement this interface.
      */
-    void removeStock();
+    int removeStock();
 
     /**
      * Checks if the stock is currently empty.

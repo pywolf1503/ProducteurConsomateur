@@ -2,8 +2,6 @@ package entities;
 
 import api.collection.Limiters;
 import api.entities.IEntrepreneur;
-import lombok.Getter;
-import lombok.Setter;
 import threads.Factory;
 
 import java.util.ArrayList;
@@ -18,8 +16,8 @@ public abstract class AEntrepreneur implements IEntrepreneur {
     }
 
     @Override
-    public void removeStock() {
-        stock.removeFirst();
+    public int removeStock() {
+         return stock.removeFirst();
     }
 
     @Override

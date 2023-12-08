@@ -26,9 +26,9 @@ This project implements a simulation of a factory, warehouse, and clients synchr
 
 **Possible enhancements**:
 
-* Limit the maximum production of the factory. ⚠️
-* Limit the storage capacity of the warehouse. ⚠️
-* Limit the number of clients who can access the warehouse simultaneously. ‍⚠️
+* Limit the maximum production of the factory. ⚠️ DONE
+* Limit the storage capacity of the warehouse. ⚠️  DONE
+* Limit the number of clients who can access the warehouse simultaneously. ‍⚠️ NOT DONE
 
 **Execution instructions**:
 

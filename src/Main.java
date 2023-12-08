@@ -25,6 +25,7 @@ public class Main {
         factory.setEntrepreneur(entrepreneur);
         entrepreneur.setFactory(factory);
         Thread factoryThread = new Thread(factory);
+        entrepreneur.setFactoryThread(factoryThread);
         factoryThread.start();
         Thread entrepreneurThread = new Thread(entrepreneur);
         entrepreneurThread.start();

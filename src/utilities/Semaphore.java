@@ -12,7 +12,9 @@ public class Semaphore implements ISemaphore {
     /** The counter representing the number of available permits. */
     private int counter;
 
-
+    public int getCounter() {
+        return counter;
+    }
 
     public Semaphore(int counter){
         this.counter = counter;

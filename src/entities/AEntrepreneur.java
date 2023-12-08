@@ -9,6 +9,7 @@ import java.util.List;
 
 public abstract class AEntrepreneur implements IEntrepreneur {
     Factory factory;
+    Thread factoryThread;
     private List<Integer> stock = new ArrayList<>();
     @Override
     public void addStock(int product) {
@@ -41,6 +42,13 @@ public abstract class AEntrepreneur implements IEntrepreneur {
 
     public void setFactory(Factory factory) {
         this.factory = factory;
+    }
+
+    public void setFactoryThread(Thread factoryThread){
+        this.factoryThread = factoryThread;
+    }
+    public Thread getFactoryThread(){
+        return factoryThread;
     }
 
     public List<Integer> getStock() {

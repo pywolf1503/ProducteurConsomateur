@@ -1,8 +1,10 @@
 package threads;
 
+import api.collection.Limiters;
 import api.collection.Notifiers;
 import entities.AEntrepreneur;
 import utilities.Console;
+import utilities.SemaphoreManager;
 
 /**
  * The Entrepreneur class represents an entity that implements the Runnable interface
@@ -18,6 +20,14 @@ public class Entrepreneur extends AEntrepreneur implements Runnable {
     @Override
     public void run() {
         while (true) {
+            if(isMaximumStock()){
+                Console.print(Notifiers.MAXIMUM_STOCK);
+                getFactoryThread().interrupt();
+            }
+            if(isMinimumStock()){
+                Console.print(Notifiers.MINIMUM_STOCK);
+                getFactoryThread().start();
+            }
         }
     }
 }

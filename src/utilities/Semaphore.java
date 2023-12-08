@@ -10,7 +10,13 @@ import lombok.Getter;
 public class Semaphore implements ISemaphore {
 
     /** The counter representing the number of available permits. */
-    private int counter = 0;
+    private int counter;
+
+
+
+    public Semaphore(int counter){
+        this.counter = counter;
+    }
 
     /**
      * Acquires a permit from this semaphore, blocking until one is available.

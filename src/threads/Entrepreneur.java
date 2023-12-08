@@ -18,19 +18,6 @@ public class Entrepreneur extends AEntrepreneur implements Runnable {
     @Override
     public void run() {
         while (true) {
-            // Check if the stock level is at its maximum
-            if (isMaximumStock()) {
-                // If so, set production to false and print a notification
-                getFactory().setProduction(false);
-                Console.print(Notifiers.MAXIMUM_STOCK);
-            }
-
-            // Check if the stock level is at its minimum
-            if (isMinimumStock()) {
-                // If so, set production to true and print a notification
-                getFactory().setProduction(true);
-                Console.print(Notifiers.MINIMUM_STOCK);
-            }
         }
     }
 }

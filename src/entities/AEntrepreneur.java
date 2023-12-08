@@ -9,7 +9,7 @@ import java.util.List;
 
 public abstract class AEntrepreneur implements IEntrepreneur {
     Factory factory;
-    private final List<Integer> stock = new ArrayList<>();
+    private List<Integer> stock = new ArrayList<>();
     @Override
     public void addStock(int product) {
         stock.add(product);
@@ -17,7 +17,7 @@ public abstract class AEntrepreneur implements IEntrepreneur {
 
     @Override
     public int removeStock() {
-         return stock.removeFirst();
+         return stock.removeLast();
     }
 
     @Override

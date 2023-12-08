@@ -1,10 +1,6 @@
 package entities;
-
 import api.entities.IFactory;
-import lombok.Getter;
-import lombok.Setter;
 import threads.Entrepreneur;
-import threads.Factory;
 
 import java.util.concurrent.ThreadLocalRandom;
 

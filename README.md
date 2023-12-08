@@ -1,4 +1,4 @@
-## Factory, Warehouse, and Clients Synchronization Problem ‍
+## Producteur Consommateur, coded by Bennia Karim
 
 This project implements a simulation of a factory, warehouse, and clients synchronized using semaphores. 
 

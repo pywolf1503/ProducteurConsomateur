@@ -3,7 +3,6 @@ import threads.Client;
 import threads.Entrepreneur;
 import threads.Factory;
 import utilities.Console;
-
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,17 +40,14 @@ public class Main {
         // Create and start the Factory thread
         Thread factoryThread = new Thread(factory);
         entrepreneur.setFactoryThread(factoryThread);
-        factoryThread.start();
-
         // Create and start the Entrepreneur thread
         Thread entrepreneurThread = new Thread(entrepreneur);
-        entrepreneurThread.start();
-
         // Start all the client threads
         for(Thread clientThread : clientThreads){
             clientThread.start();
         }
-
+        entrepreneurThread.start();
+        factoryThread.start();
         try {
             // Wait for the Entrepreneur thread to finish
             entrepreneurThread.join();

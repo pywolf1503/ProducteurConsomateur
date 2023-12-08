@@ -1,5 +1,6 @@
 package threads;
 
+import api.collection.Limiters;
 import api.collection.Notifiers;
 import entities.AFactory;
 import utilities.Console;
@@ -22,38 +23,31 @@ public class Factory extends AFactory implements Runnable {
         while(true){
             try {
                 // Acquire an empty slot in the buffer
-                SemaphoreManager.empty.acquire();
+                SemaphoreManager.empty.acquire(2);
             } catch (InterruptedException e) {
-                // Propagate any interruption as a runtime exception
-                throw new RuntimeException(e);
+                Console.print("Factory: Stopped working!");
             }
-            try {
+            try{
                 // Acquire the mutex to ensure exclusive access to shared resources
-                SemaphoreManager.mutex.acquire();
+                SemaphoreManager.mutex.acquire(1);
             } catch (InterruptedException e) {
                 // Propagate any interruption as a runtime exception
                 throw new RuntimeException(e);
             }
-
-            // Produce a new product
-            int product = produce();
-
-            // Print a notification about the produced product
-            Console.print(Notifiers.FACTORY_PRODUCE + "Product ID: " + Integer.toString(product));
-
-            // Add the produced product to the entrepreneur's stock
-            getEntrepreneur().addStock(product);
-
-            // Print a notification about the added product to the stock
-            Console.print(Notifiers.STOCK_ADDED + "Product ID: " + Integer.toString(product));
-            // Print size:
-            Console.print(Integer.toString(getEntrepreneur().getStock().size()));
-
+            for(int i = 0 ; i < 2 ; i++){
+                // Produce a new product
+                int product = produce();
+                // Print a notification about the produced product
+                Console.print(Notifiers.FACTORY_PRODUCE + "Product ID: " + Integer.toString(product));
+                // Add the produced product to the entrepreneur's stock
+                getEntrepreneur().addStock(product);
+                // Print a notification about the added product to the stock
+                Console.print(Notifiers.STOCK_ADDED + "Product ID: " + Integer.toString(product));
+            }
             // Release the mutex to allow other threads to access shared resources
-            SemaphoreManager.mutex.release();
-
+            SemaphoreManager.mutex.release(1);
             // Signal that a slot in the buffer is now full
-            SemaphoreManager.full.release();
+            SemaphoreManager.full.release(2);
         }
     }
 }

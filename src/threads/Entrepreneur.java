@@ -20,20 +20,7 @@ public class Entrepreneur extends AEntrepreneur implements Runnable {
     @Override
     public void run() {
         while (true) {
-            if(getFactory().isProduction()){
-                if(isMaximumStock()){
-                    Console.print(Notifiers.MAXIMUM_STOCK);
-                    getFactory().setProduction(false);
-                    getFactoryThread().interrupt();
-                }
-            }
-            else{
-                if(isMinimumStock()){
-                    Console.print(Notifiers.MINIMUM_STOCK);
-                    getFactory().setProduction(true);
-                    getFactoryThread().start();
-                }
-            }
+
         }
     }
 }

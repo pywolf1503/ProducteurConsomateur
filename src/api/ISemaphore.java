@@ -14,11 +14,11 @@ public interface ISemaphore {
      * @throws InterruptedException if the current thread is interrupted while waiting
      *                              for a permit
      */
-    void acquire() throws InterruptedException;
+    void acquire(int x) throws InterruptedException;
 
     /**
      * Releases a permit, returning it to the semaphore. If there are waiting threads,
      * one of them is selected to be unblocked.
      */
-    void release();
+    void release(int x);
 }

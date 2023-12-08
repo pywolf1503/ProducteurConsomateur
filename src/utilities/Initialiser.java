@@ -16,6 +16,6 @@ public class Initialiser implements IStarter {
      */
     @Override
     public void init(Factory f, Semaphore s) {
-        s.release();
+        s.release(1);
     }
 }

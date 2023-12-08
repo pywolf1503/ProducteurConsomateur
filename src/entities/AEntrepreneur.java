@@ -18,7 +18,7 @@ public abstract class AEntrepreneur implements IEntrepreneur {
 
     @Override
     public int removeStock() {
-         return stock.removeLast();
+         return stock.removeFirst();
     }
 
     @Override

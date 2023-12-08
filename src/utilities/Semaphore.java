@@ -28,8 +28,8 @@ public class Semaphore implements ISemaphore {
      *                              for a permit
      */
     @Override
-    public synchronized void acquire() throws InterruptedException {
-        counter--;
+    public synchronized void acquire(int x) throws InterruptedException {
+        counter = counter - x;
         if (counter < 0) {
             wait();
         }
@@ -40,8 +40,8 @@ public class Semaphore implements ISemaphore {
      * one of them is selected to be unblocked.
      */
     @Override
-    public synchronized void release() {
-        counter++;
+    public synchronized void release(int x) {
+        counter = counter + x;
         if (counter <= 0) {
             notify();
         }

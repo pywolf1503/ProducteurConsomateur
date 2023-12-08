@@ -40,6 +40,11 @@ public class Client extends AClient implements Runnable {
             // Signal that a slot in the buffer is now empty
             SemaphoreManager.empty.release(1);
             Console.print("Stock: " + getEntrepreneur().getStock().size());
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

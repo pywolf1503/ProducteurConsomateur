@@ -12,14 +12,14 @@ public class Limiters {
      * If the stock falls below this limit, it may trigger certain actions such as
      * notifying the entrepreneur to resume production.
      */
-    public static final int MINIMUM_STOCK = 1000;
+    public static final int MINIMUM_STOCK = 10;
 
     /**
      * Represents the maximum capacity for the stock.
      * If the stock reaches or exceeds this limit, it may trigger actions such as
      * notifying the entrepreneur to pause production.
      */
-    public static final int MAXIMUM_STOCK = 10000;
+    public static final int MAXIMUM_STOCK = 60;
 
     /**
      * Represents the multiplier of number of clients for factory speed.

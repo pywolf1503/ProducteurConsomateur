@@ -21,9 +21,11 @@ public class Factory extends AFactory implements Runnable {
     @Override
     public void run() {
         while(true){
+            if(isProduction()){
+                Console.print("Working");
             try {
                 // Acquire an empty slot in the buffer
-                SemaphoreManager.empty.acquire(2);
+                SemaphoreManager.empty.acquire(1);
             } catch (InterruptedException e) {
                 Console.print("Factory: Stopped working!");
             }
@@ -34,20 +36,26 @@ public class Factory extends AFactory implements Runnable {
                 // Propagate any interruption as a runtime exception
                 throw new RuntimeException(e);
             }
-            for(int i = 0 ; i < 2 ; i++){
-                // Produce a new product
-                int product = produce();
-                // Print a notification about the produced product
-                Console.print(Notifiers.FACTORY_PRODUCE + "Product ID: " + Integer.toString(product));
-                // Add the produced product to the entrepreneur's stock
-                getEntrepreneur().addStock(product);
-                // Print a notification about the added product to the stock
-                Console.print(Notifiers.STOCK_ADDED + "Product ID: " + Integer.toString(product));
-            }
+
+            // Produce a new product
+            int product = produce();
+            // Print a notification about the produced product
+            Console.print(Notifiers.FACTORY_PRODUCE + "Product ID: " + product);
+            // Add the produced product to the entrepreneur's stock
+            getEntrepreneur().addStock(product);
+            // Print a notification about the added product to the stock
+            Console.print(Notifiers.STOCK_ADDED + "Product ID: " + product);
+
             // Release the mutex to allow other threads to access shared resources
             SemaphoreManager.mutex.release(1);
             // Signal that a slot in the buffer is now full
-            SemaphoreManager.full.release(2);
+            SemaphoreManager.full.release(1);
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
         }
     }
 }

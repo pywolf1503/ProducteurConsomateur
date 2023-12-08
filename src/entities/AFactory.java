@@ -19,12 +19,4 @@ public abstract class AFactory implements IFactory {
     public void setEntrepreneur(Entrepreneur entrepreneur) {
         this.entrepreneur = entrepreneur;
     }
-
-    public boolean isProduction() {
-        return production;
-    }
-
-    public void setProduction(boolean production) {
-        this.production = production;
-    }
 }

@@ -46,6 +46,8 @@ public class Factory extends AFactory implements Runnable {
 
             // Print a notification about the added product to the stock
             Console.print(Notifiers.STOCK_ADDED + "Product ID: " + Integer.toString(product));
+            // Print size:
+            Console.print(Integer.toString(getEntrepreneur().getStock().size()));
 
             // Release the mutex to allow other threads to access shared resources
             SemaphoreManager.mutex.release();

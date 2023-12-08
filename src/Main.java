@@ -37,8 +37,10 @@ public class Main {
         factory.setEntrepreneur(entrepreneur);
         entrepreneur.setFactory(factory);
 
+
         // Create and start the Factory thread
         Thread factoryThread = new Thread(factory);
+        entrepreneur.setFactoryThread(factoryThread);
         factoryThread.start();
 
         // Create and start the Entrepreneur thread

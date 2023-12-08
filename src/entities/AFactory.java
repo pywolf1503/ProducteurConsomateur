@@ -7,6 +7,15 @@ import java.util.concurrent.ThreadLocalRandom;
 public abstract class AFactory implements IFactory {
     Entrepreneur entrepreneur;
     private boolean production = true;
+
+    public boolean isProduction() {
+        return production;
+    }
+
+    public void setProduction(boolean production) {
+        this.production = production;
+    }
+
     @Override
     public int produce() {
         return ThreadLocalRandom.current().nextInt(10000);

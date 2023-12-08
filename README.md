@@ -28,18 +28,13 @@ This project implements a simulation of a factory, warehouse, and clients synchr
 
 * Limit the maximum production of the factory. ⚠️ DONE
 * Limit the storage capacity of the warehouse. ⚠️  DONE
-* Limit the number of clients who can access the warehouse simultaneously. ‍⚠️ NOT DONE
+* Mechanism that modifies factory rythm depending on the number of clients.. ⚠️  NOT DONE
 
 **Execution instructions**:
 
 1. Compile the Java files. 
 2. Run the `Main` class. 
 
-**Modifications and improvements**:
-
-* You can modify the initial values of the semaphores and the warehouse thresholds to observe the impact on the system's operation. ⚙️
-* You can add logging mechanisms to track the production, storage, and consumption of goods. 
-* You can add graphical interfaces to visualize the state of the factory, warehouse, and clients. 
 
 **License**:
 

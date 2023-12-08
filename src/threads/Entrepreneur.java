@@ -22,6 +22,7 @@ public class Entrepreneur extends AEntrepreneur implements Runnable {
         while (true) {
             if(getFactory().isProduction()){
                 if(isMaximumStock()){
+                    getFactoryThread().interrupt();
                     getFactory().setProduction(false);
                     Console.print("Factory: Stopped working!");
                 }
@@ -29,6 +30,8 @@ public class Entrepreneur extends AEntrepreneur implements Runnable {
             else{
                 if(isMinimumStock()){
                     getFactory().setProduction(true);
+                    setFactoryThread(new Thread(getFactory()));
+                    getFactoryThread().start();
                     Console.print("Factory: Started working!");
                 }
             }

@@ -41,7 +41,7 @@ public class Client extends AClient implements Runnable {
             SemaphoreManager.empty.release(1);
             Console.print("Stock: " + getEntrepreneur().getStock().size());
             try {
-                Thread.sleep(1000);
+                Thread.sleep(600);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

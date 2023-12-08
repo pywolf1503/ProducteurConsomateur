@@ -22,7 +22,6 @@ public class Factory extends AFactory implements Runnable {
     public void run() {
         while(true){
             if(isProduction()){
-                Console.print("Working");
             try {
                 // Acquire an empty slot in the buffer
                 SemaphoreManager.empty.acquire(1);
@@ -36,7 +35,6 @@ public class Factory extends AFactory implements Runnable {
                 // Propagate any interruption as a runtime exception
                 throw new RuntimeException(e);
             }
-
             // Produce a new product
             int product = produce();
             // Print a notification about the produced product

@@ -28,7 +28,7 @@ This project implements a simulation of a factory, warehouse, and clients synchr
 
 * Limit the maximum production of the factory. ⚠️ DONE
 * Limit the storage capacity of the warehouse. ⚠️  DONE
-* Mechanism that modifies factory rythm depending on the number of clients.. ⚠️  NOT DONE
+* Mechanism that modifies factory rythm depending on the number of clients.. ⚠️ DONE
 
 **Execution instructions**:
 

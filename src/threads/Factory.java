@@ -35,21 +35,20 @@ public class Factory extends AFactory implements Runnable {
                 // Propagate any interruption as a runtime exception
                 throw new RuntimeException(e);
             }
-            // Produce a new product
-            int product = produce();
-            // Print a notification about the produced product
-            Console.print(Notifiers.FACTORY_PRODUCE + "Product ID: " + product);
-            // Add the produced product to the entrepreneur's stock
-            getEntrepreneur().addStock(product);
-            // Print a notification about the added product to the stock
-            Console.print(Notifiers.STOCK_ADDED + "Product ID: " + product);
-
+                // Produce a new product
+                int product = produce();
+                // Print a notification about the produced product
+                Console.print(Console.GREEN + Notifiers.FACTORY_PRODUCE + Console.CYAN_BOLD + "Product ID: " + product);
+                // Add the produced product to the entrepreneur's stock
+                getEntrepreneur().addStock(product);
+                // Print a notification about the added product to the stock
+                //Console.print(Notifiers.STOCK_ADDED + "Product ID: " + product);
             // Release the mutex to allow other threads to access shared resources
             SemaphoreManager.mutex.release(1);
             // Signal that a slot in the buffer is now full
             SemaphoreManager.full.release(1);
             try {
-                Thread.sleep(50);
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

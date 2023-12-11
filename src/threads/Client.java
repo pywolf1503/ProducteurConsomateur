@@ -34,14 +34,14 @@ public class Client extends AClient implements Runnable {
                 throw new RuntimeException(e);
             }
             // Print a notification about the removed product from the stock
-            Console.print(Notifiers.CLIENT_REMOVE + " Product ID: " + getEntrepreneur().removeStock());
+            Console.print(Console.RED + Notifiers.CLIENT_REMOVE + Console.CYAN_BOLD +" Product ID: " + getEntrepreneur().removeStock());
             // Release the mutex to allow other threads to access shared resources
             SemaphoreManager.mutex.release(1);
             // Signal that a slot in the buffer is now empty
             SemaphoreManager.empty.release(1);
-            Console.print("Stock: " + getEntrepreneur().getStock().size());
+            Console.print(Console.PURPLE_BOLD + "Stock: " + Console.PURPLE_UNDERLINED + getEntrepreneur().getStock().size());
             try {
-                Thread.sleep(600);
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

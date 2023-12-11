@@ -13,6 +13,10 @@ public class Usine implements Runnable{
 
     // Entrepreneur instance
     // Entrepreneur entrepreneur;
+
+    // setEntrepreneur(Entrepreneur entrepreneur){
+    // this.entrepreneur = entrepreneur;
+    // }
     /**
      * Runs this operation.
      */
